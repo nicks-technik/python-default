@@ -1,4 +1,5 @@
 import os
+import time
 import logging
 import logging.config
 import argparse
@@ -49,6 +50,8 @@ def main():
 
 if __name__ == "__main__":
 
+    start_time = time.time()
+
     # log_module_a.do_something_in_a()
     # log_module_b.do_something_in_b()
     load_env_variables()
@@ -59,3 +62,5 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)  # Get the module logger
 
     main()
+
+    logger.info(f"Execution time: {time.time() - start_time:.2f} seconds")
