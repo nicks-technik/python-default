@@ -18,11 +18,11 @@ formatters:
 handlers:
   console:
     class: colorlog.StreamHandler
-    level: INFO
+    # level: DEBUG
     formatter: colored
   file:
     class: logging.FileHandler
-    level: DEBUG
+    # level: DEBUG
     filename: my_app.log
     formatter: detailed
 
