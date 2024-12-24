@@ -7,7 +7,12 @@ import argparse
 import yaml
 
 from dotenv import load_dotenv
-from base_utils import setup_logging, load_env_variables  # Import from the module
+from base_utils import (
+    setup_logging,
+    load_env_variables,
+    wait_for_any_key,
+    wait_for_yn,
+)  # Import from the module
 
 
 # import log_module_a
@@ -38,6 +43,18 @@ def main():
     # Access environment variables and command-line arguments
     my_var = os.getenv("MY_VAR")
     logger.debug("Environment variable MY_VAR: %s", my_var)
+
+    wait_for_any_key()
+    logger.debug("This is a debug message")
+    logger.warning("This is a warning message")
+    logger.error("This is an error message")
+    logger.critical("This is a critical message")
+
+    decision = wait_for_yn()
+    if decision:
+        logger.info("User pressed Y")
+    else:
+        logger.info("User pressed N")
 
     # Your main application logic goes here
     logger.debug("This is a debug message")

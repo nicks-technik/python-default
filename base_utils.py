@@ -74,9 +74,9 @@ def wait_for_any_key(msg="Press any key to continue...") -> None:
 def wait_for_yn(msg="Please press Y/y or N/n") -> bool:
     """Wait for a Y/y/N/n input. Return True if Y or y is pressed, False otherwise."""
     while True:
+        print(msg)
         key = wait_for_keypress()
         if key and key.lower() == "y":
             return True
         elif key and key.lower() == "n":
             return False
-        print(msg)
