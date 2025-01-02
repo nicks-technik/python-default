@@ -4,9 +4,9 @@ import logging
 import logging.config
 import argparse
 
-import yaml
+# import yaml
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from base_utils import (
     setup_logging,
     load_env_variables,
@@ -21,7 +21,7 @@ from base_utils import (
 
 def parse_arguments():
     """Parse command-line arguments using argparse"""
-    parser = argparse.ArgumentParser(description=f"My Base Python Script")
+    parser = argparse.ArgumentParser(description="Base Python Script")
     parser.add_argument(
         "--verbose",
         "-v",
@@ -62,7 +62,7 @@ def main():
     logger.error("This is an error message")
     logger.critical("This is a critical message")
 
-    logger.info(f"Script finished. Infomation File: {__file__}")
+    logger.info("Script finished. Infomation File: %s", __file__)
 
 
 if __name__ == "__main__":
@@ -74,10 +74,11 @@ if __name__ == "__main__":
     load_env_variables()
     parser = parse_arguments()
 
-    # Load a custom logging configuration if it's passed as an argument, otherwise, load default or use env variable
+    # Load a custom logging configuration if it's passed as an argument,
+    # otherwise, load default or use env variable
     setup_logging(parser=parser)  # pass the parser
     logger = logging.getLogger(__name__)  # Get the module logger
 
     main()
 
-    logger.info(f"Execution time: {time.time() - start_time:.2f} seconds")
+    logger.info("Execution time: %.2f seconds", time.time() - start_time)
